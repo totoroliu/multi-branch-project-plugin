@@ -662,6 +662,13 @@ public abstract class TemplateDrivenMultiBranchProject<P extends AbstractProject
                     LOGGER.log(Level.WARNING, "Unable to keep sub-project disabled.", e);
                 }
             }
+
+            // Fortinet-change
+            //try {
+            //    project.setScm(new NullSCM());
+            //} catch (IOException e) {
+            //    LOGGER.log(Level.WARNING, "project class=" + project.getClass(), e);
+            //}
         }
     }
 
