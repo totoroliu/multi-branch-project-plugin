@@ -31,6 +31,7 @@ import hudson.model.Item;
 import hudson.model.Items;
 import hudson.model.Saveable;
 import hudson.model.TopLevelItem;
+import hudson.scm.NullSCM;
 import hudson.util.AtomicFileWriter;
 import jenkins.branch.Branch;
 import jenkins.branch.BranchProjectFactory;
@@ -136,7 +137,9 @@ public abstract class TemplateDrivenBranchProjectFactory<P extends AbstractProje
             // Restore settings managed by this plugin
             setBranch(project, branch);
             project.setDisplayName(displayName);
-            project.setScm(branch.getScm());
+            // Fortinet-change
+            //project.setScm(branch.getScm());
+            project.setScm(new NullSCM());
 
             // Workarounds for JENKINS-21017
             project.setBuildDiscarder(owner.getTemplate().getBuildDiscarder());
